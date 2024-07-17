@@ -38,19 +38,22 @@ class CardCounter:
 
 
 def draw_menu():
+    #Crear el menú principal con las opciones de configuración y su color (RGB)
     screen.fill((0, 0, 0))
-    title = font.render("Card Counting Trainer", True, (255, 255, 255))
+    title = font.render("Card Counting Trainer", True, (201, 52, 52))
     speed_label = font.render(f"Speed (u/d arrows): {speed}", True, (66, 166, 252))
     num_cards_label = font.render(f"Number of Cards (l/r arrows): {num_cards}", True, (66, 166, 252))
     cards_rand = font.render("For random num. of cards (between 10 and 52) choose 0", True, (255, 255, 255))
     speed_rand = font.render("For random speed (between 1 and 7) choose 0", True, (255, 255, 255))
+    remember = font.render("Remember: +1 if 2 to 6  ~  +0 if 7 to 9  ~  -1 if 10 to A", True, (201, 186, 52))
     play_button = font.render("Play", True, (0, 255, 0))
-
-    screen.blit(title, (300, 100))
+    #Agregar el texto al menú y su posición (horizontal, vertical)
+    screen.blit(title, (250, 100))
     screen.blit(speed_label, (200, 200))
     screen.blit(num_cards_label, (200, 250))
-    screen.blit(speed_rand, (100, 350))
-    screen.blit(cards_rand, (100, 400))
+    screen.blit(speed_rand, (100, 300))
+    screen.blit(cards_rand, (100, 350))
+    screen.blit(remember, (100, 400))
     screen.blit(play_button, (350, 500))
 
     pygame.display.flip()
@@ -85,7 +88,7 @@ def menu():
                 if event.key == pygame.K_RETURN:
                     play_game()
 
-        clock.tick(10)  # Control the update speed
+        clock.tick(10)  #Controlar la velocidad de actualización de la pantalla
 
 
 def play_game():
